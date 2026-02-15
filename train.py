@@ -30,9 +30,9 @@ from sklearn.metrics import (
 
 
 RANDOM_STATE = 42
-DATA_PATH = "Digital_Payment_Fraud_Detection_Dataset.csv"
-TARGET_COL = "fraud_label"
-DROP_COLS = ["transaction_id", "user_id"]
+DATA_PATH = "WA_Fn-UseC_-Telco-Customer-Churn.csv"
+TARGET_COL = "Churn"
+DROP_COLS = ["customerID"]
 
 
 def ensure_dirs():
@@ -51,6 +51,11 @@ def main():
     df = pd.read_csv(DATA_PATH)
     if TARGET_COL not in df.columns:
         raise ValueError(f"Target column '{TARGET_COL}' not found in {DATA_PATH}")
+
+    # Telco-specific cleanup: TotalCharges has blank strings; convert to numeric
+    if "TotalCharges" in df.columns:
+        tc = df["TotalCharges"].astype(str).str.strip().replace({"": np.nan})
+        df["TotalCharges"] = pd.to_numeric(tc, errors="coerce")
 
     for c in DROP_COLS:
         if c in df.columns:

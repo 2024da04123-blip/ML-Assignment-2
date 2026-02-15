@@ -1,4 +1,4 @@
-# ML Assignment 2 — Fraud Detection (Streamlit)
+# ML Assignment 2 — Telco Customer Churn (Streamlit)
 
 This repository trains and compares **6 classification models** and provides a **Streamlit** app that lets a user upload a CSV, select a model, and view metrics + a confusion matrix.
 
@@ -9,12 +9,12 @@ This repository trains and compares **6 classification models** and provides a *
 - **Streamlit app**: CSV upload + model dropdown + metrics display + confusion matrix
 
 ## Dataset
-- **File**: `Digital_Payment_Fraud_Detection_Dataset.csv`
-- **Target**: `fraud_label` (0 = non-fraud, 1 = fraud)
-- **Rows / Columns**: 7500 rows, 15 columns
-- **Kaggle/UCI source**: [Digital Payment Fraud Detection (Kaggle)](https://www.kaggle.com/datasets/jayjoshi37/digital-payment-fraud-detection)
+- **File**: `WA_Fn-UseC_-Telco-Customer-Churn.csv`
+- **Target**: `Churn` (Yes/No)
+- **Rows / Columns**: 7043 rows, 21 columns
+- **Kaggle/UCI source**: [Telco Customer Churn (Kaggle)](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
 
-We drop ID-like columns (`transaction_id`, `user_id`) before training. After dropping them, there are still **12+ features**, satisfying the minimum feature requirement.
+We drop `customerID` before training. After dropping it, there are still **12+ features**, satisfying the minimum feature requirement.
 
 ## Project structure
 - `train.py`: trains all models, computes metrics, saves artifacts

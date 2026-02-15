@@ -16,7 +16,7 @@ from sklearn.metrics import (
 )
 
 
-st.set_page_config(page_title="Fraud Detection — Streamlit App", layout="wide")
+st.set_page_config(page_title="Telco Churn — Streamlit App", layout="wide")
 
 
 def compute_binary_auc(y_true_enc, proba_2d):
@@ -29,7 +29,7 @@ def load_artifact():
 
 
 def main():
-    st.title("Digital Payment Fraud Detection — Model Comparator")
+    st.title("Telco Customer Churn — Model Comparator")
 
     artifact = load_artifact()
     models = artifact["models"]
